@@ -1,0 +1,216 @@
+:root {
+    --brand-color: #b2e4d1; 
+    --text-dark: #333;
+    --bg-page: #f4f4f4;
+    --white: #ffffff;
+    --ring-color: #a68a56;
+    --ring-highlight: #e0d1b3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+.page-header {
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+    background-color: var(--white);
+    border-bottom: 3px solid var(--brand-color);
+    margin-bottom: 5rem; 
+}
+
+
+.notebook-menu {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    position: relative;
+}
+
+.navigation-bar {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px; 
+    position: relative;
+    z-index: 1; 
+}
+
+.navigation-bar h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    text-align: right;
+    padding-right: 25px;
+    color: #888;
+    text-transform: uppercase;
+}
+
+#navigation-elements {
+    list-style: none;
+}
+
+#navigation-elements li a {
+    display: block;
+    text-decoration: none;
+    color: #444;
+    background-color: var(--brand-color);
+    
+    padding: 12px 20px 12px 40px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
+    
+    margin-right: -20px; 
+    position: relative;
+    
+    transition: transform 0.3s ease, padding-left 0.3s ease;
+}
+
+#navigation-elements li a:hover {
+    transform: translateX(-15px);
+    padding-left: 50px;
+    filter: brightness(1.05);
+}
+
+#navigation-elements li a.active {
+    transform: translateX(-20px); 
+        background-color: #82c5b6; 
+    padding-left: 50px;
+    filter: brightness(1.1);
+    box-shadow: -5px 5px 10px rgba(0,0,0,0.2);
+}
+
+.task-notebook {
+    flex-grow: 1;
+    width: 700px;
+    background-color: #fff;
+    
+    background-image: 
+        linear-gradient(90deg, transparent 49px, #ab4442 50px, #ab4442 51px, transparent 52px),
+        linear-gradient(rgba(0,0,0,0.05) .1rem, transparent .1rem);
+    background-size: 100% 100%, 100% 1.5rem;
+    
+    
+    border: 1px solid #ccc;
+    border-left: 15px solid var(--brand-color); 
+    border-top: 1px solid #ddd;
+    border-radius: 4px 15px 15px 4px;
+    
+    padding: 4rem 2rem 2rem 80px; 
+    position: relative;
+    z-index: 2; 
+    
+    box-shadow: 10px 10px 25px rgba(0,0,0,0.1);
+    min-height: 600px;
+}
+
+.task-notebook::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 60px;
+    right: 40px;
+    height: 55px;
+    background-image: repeating-linear-gradient(
+        to right,
+        transparent 0,
+        transparent 15px,
+        var(--ring-color) 15px,
+        var(--ring-highlight) 17px,
+        var(--ring-color) 19px,
+        transparent 19px,
+        transparent 23px,
+        var(--ring-color) 23px,
+        var(--ring-highlight) 25px,
+        var(--ring-color) 27px
+    );
+    background-size: 40px 100%;
+    z-index: 10;
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.task-notebook::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 60px;
+    right: 40px;
+    height: 10px;
+    background-image: repeating-linear-gradient(
+        to right,
+        transparent 0,
+        transparent 16px,
+        #333 16px,
+        #333 20px,
+        transparent 20px,
+        transparent 24px,
+        #333 24px,
+        #333 28px
+    );
+    background-size: 40px 100%;
+    opacity: 0.15;
+    z-index: 5;
+}
+
+
+.task-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.task-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 0;
+    line-height: 1.5rem;
+    border-bottom: 1px dashed #eee;
+    font-family: 'Comic Sans MS', cursive;
+    color: #444;
+}
+
+.task-form {
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+.task-form input {
+    border: 1px solid #ccc;
+    padding: 8px;
+    width: 70%;
+    border-radius: 4px;
+}
+
+.task-form button {
+    background-color: var(--brand-color);
+    border: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+footer {
+    margin-top: 2rem;
+    color: #888;
+    font-size: 0.8rem;
+}

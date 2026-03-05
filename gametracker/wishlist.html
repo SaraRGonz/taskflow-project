@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tracker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <header>Game Tracker</header>
+
+    <div class="games-container">
+        <aside>
+            <h2 class="menu-title">Menu</h2>
+            <nav>
+                <ul>
+                    <li> <a href="index.html">Jugando</a> </li>
+                    <li> <a href="pendiente.html">Pendiente</a> </li>
+                    <li> <a href="wishlist.html" class="active">Wishlist</a> </li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <section class="game-list">
+                <article class="game-card">
+                    <input type="checkbox" class="status-check">
+                    <div class="card-image">
+                        <img src="images/stardewvalley.png" alt="Stardew Valley cover">
+                    </div>
+                    <div class="card-content">
+                        <h3>Stardew Valley</h3>
+                        <span class="category">Indie, Rol, Simuladores</span>
+                        <span class="low-priority">Prioridad baja</span>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <input type="checkbox" class="status-check">
+                    <div class="card-image">
+                        <img src="images/rdr2.png" alt="Red Dead Redemption 2 cover">
+                    </div>
+                    <div class="card-content">
+                        <h3>Red Dead Redemption 2</h3>
+                        <span class="category">Acción, Aventura</span>
+                        <span class="low-priority">Prioridad baja</span>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <input type="checkbox" class="status-check">
+                    <div class="card-image">
+                        <img src="images/cyberpunk2077.ico" alt="Cyberpunk 2077 cover">
+                    </div>
+                    <div class="card-content">
+                        <h3>Cyberpunk 2077</h3>
+                        <span class="category">Rol</span>
+                        <span class="low-priority">Prioridad baja</span>
+                    </div>
+                </article>
+            </section>
+        </main>
+    </div>
+    
+</body>
+</html>

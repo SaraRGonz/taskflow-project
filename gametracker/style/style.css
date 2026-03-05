@@ -1,0 +1,263 @@
+/* -------Variables------- */
+:root {
+    --main-background: #050510;
+    --games-background: #0d1527;
+    --card-background: #0594b41a;
+    --title-gradient:  linear-gradient(90deg,rgba(238, 9, 121, 1) 0%, rgba(232, 116, 172, 1) 90%);
+    --text-color: #ffffff;
+    --title-font: 'Press Start 2P', system-ui;
+    --text-font: sans-serif;
+    --accent-color: #ee0979;
+    --high-priority: #ee0978d2;
+    --medium-priority: #ffb52bce;
+    --low-priority: #dcfd81c9;
+    --category: #a8a8a8;
+    --spacing: 1rem;
+    --completed-background: #0d1527;     
+    --completed-check: #0592a5be;  
+    --completed-text: #5066a0;
+}
+
+/* -------Global styles------- */
+body {
+    background-color: var(--main-background);
+    color: var(--text-color);
+    font-family: var(--text-font);
+    margin: 0;
+}
+
+header {
+    font-family: var(--title-font);
+    text-align: center;
+    padding: 2rem;
+    font-size: 5rem;
+    /* Title color gradient */
+    background: var(--title-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* White border */
+    -webkit-text-stroke: 1px white;
+    /* Text shadow */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+/* -------Layout------- */
+.games-container {
+    display: flex;
+}
+
+.menu-title {
+    font-family: var(--title-font);
+    font-size: 0.8rem; 
+    color: var(--accent-color);
+    text-transform: uppercase;
+    margin-bottom: 2rem; 
+    padding-left: 0.8rem;
+    letter-spacing: 2px;
+    border-bottom: 2px solid rgba(238, 9, 121, 0.3); 
+    padding-bottom: 0.5rem;
+}
+
+aside {
+    width: 15rem;
+    background-color: var(--main-background);
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+aside ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+}
+
+aside li a {
+    text-decoration: none; 
+    color: var(--text-color);
+    font-family: var(--title-font);
+    font-size: 0.7rem;
+    font-weight: bold;
+    display: block;
+    padding: 0.8rem;
+    border-radius: 0.4rem;
+    transition: all 0.3s ease;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.game-list {
+    display: grid;
+    background-color: var(--games-background);
+    padding: var(--spacing);
+    margin-right: 2rem;
+    border-radius: 1rem;
+}
+
+/* -------Components------- */
+.game-card {
+    display: flex; 
+    flex-direction: row; 
+    align-items: center;
+    gap: 1rem; 
+    background-color: var(--card-background);
+    color: var(--text-color);
+    padding: var(--spacing);
+    margin: 1rem;
+    border-radius: 0.5rem;
+}
+
+.status-check{
+    appearance: none;
+    -webkit-appearance: none;
+    /* status-check new size */
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.card-image {
+    width: 80px;  
+    height: 80px; 
+    flex-shrink: 0; 
+    overflow: hidden; 
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.category {
+    color: var(--category);
+}
+
+.high-priority {
+    color: var(--high-priority);
+}
+
+.medium-priority {
+    color: var(--medium-priority);
+}
+
+.low-priority {
+    color: var(--low-priority);
+}
+
+/* -------State and interactivity------- */
+
+aside li a:hover {
+    background-color: var(--main-background);
+    color: var(--accent-color);
+    padding-left: 1.5rem;
+}
+
+aside li a.active {
+    border-left: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    background-color: var(--card-background);
+}
+
+.game-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.status-check:checked ~ .card-content { /* Crosses off and changes color of card-content when checked */
+    text-decoration: line-through;
+    opacity: 0.7;
+    color: var(--completed-text);
+}
+
+.status-check:checked ~ .card-content .high-priority,
+.status-check:checked ~ .card-content .medium-priority,
+.status-check:checked ~ .card-content .low-priority {
+    color: inherit;
+}
+
+.status-check:checked ~ .card-image {
+    opacity: 0.4;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+    
+}
+
+.game-card:has(.status-check:checked) { /* Changes game-card background when checked */
+    background-color: var(--completed-background);
+}
+
+.status-check:hover { 
+    border-color: white;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.status-check:checked { /* Fills checkbox when checked*/
+    background-color: var(--completed-check);
+    border-color: var(--completed-check);     
+    transform: scale(0.9);              
+}
+
+.status-check:checked:hover {
+    background-color: var(--completed-check); 
+    border-color: white;     
+}  
+
+/* -------Media Queries------- */
+@media (max-width: 768px) {
+    .games-container {
+        flex-direction: column;
+    }
+
+    header {
+            font-size: 2rem;
+            padding: 1rem;
+        }
+
+    .menu-title {
+        display: none;
+    }
+
+    aside {
+        width: 100%;
+        min-height: auto; 
+        border-right: none;
+        padding: 1rem 0;
+    }
+
+    aside ul {
+        flex-direction: row; 
+        justify-content: center; 
+        flex-wrap: wrap; 
+        gap: 0.5rem;
+    }
+
+    aside li a {
+        font-size: 0.6rem;
+        padding: 0.5rem;
+    }
+
+    aside li a:hover {
+    background-color: var(--main-background);
+    color: var(--accent-color);
+    padding-left: 0.5rem;
+}
+
+}

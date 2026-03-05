@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1>Task Manager</h1>
+        <p>Organiza tu día a día</p>
+    </header>
+    <div class="notebook-menu"> 
+        <aside>
+        <nav class="navigation-bar">
+            <h2>Prioridad</h2>
+            <ul id="navigation-elements">
+                <li><a href="#" class="active">Todas</a></li> 
+                <li><a href="#">Alta</a></li>
+                <li><a href="#">Media</a></li>
+                <li><a href="#">Baja</a></li>
+            </ul>
+        </nav>
+        </aside>
+        <main>
+            <article class="task-notebook">
+                <section class="notebook-header">
+                    <h2>To do:</h2>
+                </section>
+                <section class="task-list" id="task-container">
+                    <!-- Added tasks -->
+                </section>
+                <section class="add-task">
+                    <form class="task-form" id="add-task-form">
+                        <label for="new-task">Nueva tarea:</label> <br>
+                        <input type="text" id="new-task" name="new-task" placeholder="Escribe tu tarea aquí">
+                        <select id="priority" name="priority">
+                            <option value="alta">Alta</option>
+                            <option value="media">Media</option>
+                            <option value="baja">Baja</option>
+                        </select>
+                        <button type="submit">Agregar</button>
+                    </form>
+                </section>
+            </article>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
