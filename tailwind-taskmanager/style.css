@@ -1,3 +1,39 @@
 @import "tailwindcss";
 
+/* Custom variant to handle dark mode classes */
 @variant dark (&:where(.dark, .dark *));
+
+@layer components {
+    /* Notebook side tabs (Post-it style) */
+    .nav-tab {
+        /* Base styling: teal background and uppercase bold text */
+        @apply block text-gray-800 font-bold text-[0.75rem] uppercase py-3 pr-5 pl-10 bg-teal-200 transition-all duration-300 ease-in-out cursor-pointer;
+        
+        /* Creates the arrow/tab shape pointing to the left */
+        clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
+        
+        /* Overlap the notebook border to avoid gaps */
+        margin-right: -15px; 
+        position: relative;
+        z-index: 10; 
+        min-width: 130px;
+        text-align: right;
+    }
+
+    /* Hover effect: tab stretches out to the left */
+    .nav-tab:hover {
+        @apply pl-24 brightness-110;
+        z-index: 15;
+    }
+
+    /* Active state: tab stays stretched, changes color, and stays on top */
+    .nav-tab.active {
+        @apply pl-28 bg-teal-400 brightness-100 shadow-lg;
+        z-index: 20;
+    }
+
+    /* Hand-written font style for notebook tasks */
+    .task-font {
+        font-family: 'Comic Sans MS', 'cursive', sans-serif;
+    }
+}
